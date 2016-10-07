@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Começando a desenhar - Paths</title>
+</head>
+
+<body>
+	<canvas id="meu_canvas" width = "300" height = "300"></canvas>
+	<script type="text/javascript">	
+		//Aqui obteremos o contexto gráfico e trabalharemos com o Canvas
+		//referenciando o canvas
+		var canvas = document.getElementById('meu_canvas');
+		//Obtendo o contexto
+		var context = canvas.getContext('2d');
+
+
+		// Path são caminhos que podem ser utilizados para fazer 
+		// um desenho mais complexo. Eles ficam agardando metodos
+		// fill ou stroke serem chamados
+		// Sempre deve-se iniciar com o método beginPath
+		// esse método limpa a memória de desenhos anteriores
+
+		context.beginPath();
+
+		//moveTo(x,y): posiciona a caneta virtual em um determinado ponto;
+		//lineTo(x,y): traça uma linha do ponto atul até o ponto indicado;
+
+      context.moveTo(75, 250);  // Ponto inicial
+      context.lineTo(150, 50);
+      context.lineTo(225, 250);
+      context.lineTo(50, 120);
+      context.lineTo(250, 120);
+      context.lineTo(75, 250);
+      
+      // Configurar a linha
+      context.lineWidth = 3;
+      context.strokeStyle = 'red';
+      
+      // Traçar as linhas do caminho
+      context.stroke();
+
+	</script>
+</body>

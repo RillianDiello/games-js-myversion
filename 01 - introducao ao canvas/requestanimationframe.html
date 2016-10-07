@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Método window.requestAnimationFrame</title>
+</head>
+
+<body>
+	<canvas id="meu_canvas" width="300" height="300"></canvas>
+	<script>
+		// Canvas e contexto
+		canvas = document.getElementById('meu_canvas');
+		context = canvas.getContext('2d');
+		// Solicito a execução de uma função
+		// Não é preciso qualificar o window
+		// requestAnimationFrame(minhaFunção)
+		// Outro conceito importante é o tempo
+		// O requestAnimationFrame trabalha em ciclos do cp q é muito curto
+		// O Javascript possui um objeto Date que obtem informações da data e hora
+		// atuais atraves do metodo getTime()
+
+		var x = 20;
+		var y = 100;
+		var raio = 5;
+
+		requestAnimationFrame(mexerBola);
+		
+
+		function mexerBola(){
+			//limpar o canvas
+			context.clearRect(0,0,canvas.width, canvas.height);
+
+			//Desenhar a bola
+			context.beginPath();
+			context.arc(x, y, raio, 0, Math.PI*2);
+			context.fill();
+
+			//deslocamento no eixo x
+			x += 20;
+
+			//Chamar o proximo ciclo da animação
+			requestAnimationFrame(mexerBola);
+
+		}
+	</script>
+</body>

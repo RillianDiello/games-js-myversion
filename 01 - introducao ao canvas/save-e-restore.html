@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Métodos save e restore</title>
+
+</head>
+
+<body>
+	<canvas id="meu_canvas" width="200" height="200"></canvas>
+   	<script>
+      // Canvas e contexto
+      /*
+      	o objeto context possui um método save(), que empilha configurações
+      	nos sempre trabalhamos no nível mais alto. Dessa foram
+      	as configurações abaixo não são alteradas
+
+      	Existe tbm o metodo restore que permite voltar para configurações
+      	anteriores
+      */
+      var canvas = document.getElementById('meu_canvas');
+      var context = canvas.getContext('2d');
+
+      context.fillStyle = 'green'; //cor da linha
+      context.fillRect(50, 50, 25, 25); // desenhar um retangulo
+
+      //Savamos a configuração e subimos na pilha
+      context.save();
+
+      //Agora um novo desenho
+      context.fillStyle = 'purple';
+      context.fillRect(100, 50, 25, 25);
+
+      //voltamos para o nivel anterior      
+      context.restore()
+
+      context.fillRect(150, 50, 25, 25);
+   	</script>
+</body>
+

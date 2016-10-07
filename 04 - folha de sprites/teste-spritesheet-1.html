@@ -1,0 +1,43 @@
+<html>
+<head>
+   <title>Testando a classe Spritesheet</title>
+   <script src="spritesheet.js"></script>
+</head>
+<body>
+	<canvas id = "canvas_spritesheet_1" width = "500" height = "500"></canvas>
+	<script>
+		/* 
+		Vamos tentar mardar na Spritesheet 
+		da maneira mais simples.
+		*/
+		var context =document.getElementById('canvas_spritesheet_1').getContext('2d');
+		var imgSonic = new Image(); 
+		imgSonic.src = 'spritesheet.png';
+
+		//Passar: context, imagem, linha, coluna;
+		var sheet = new Spritesheet(context, imgSonic, 3, 8); 
+
+		//Duração de cada quadro 60 milisegundos
+		sheet.intervalo = 60;
+
+		//ação = correndo para a direita
+		sheet.linha = 1;
+
+		//Animação
+		imgSonic.onload = gameLoop;
+
+
+		function gameLoop(){
+			context.clearRect(0,0, context.canvas.width, context.canvas.height); //limpar a area
+
+			//ação de avançar para o proximo quadro
+			sheet.proximoQuadro();
+
+			//Localização do desenho do quadro
+			sheet.desenhar(100, 100);
+
+			requestAnimationFrame(gameLoop);
+		}
+	</script>
+</body>
+</html>

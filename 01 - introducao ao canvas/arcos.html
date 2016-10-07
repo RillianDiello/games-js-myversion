@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Começando a desenhar - Paths</title>
+</head>
+
+<body>
+	<canvas id="meu_canvas" width = "300" height = "300"></canvas>
+	<script type="text/javascript">	
+		//Aqui obteremos o contexto gráfico e trabalharemos com o Canvas
+		//referenciando o canvas
+		var canvas = document.getElementById('meu_canvas');
+		//Obtendo o contexto
+		var context = canvas.getContext('2d');
+
+		context.fillStyle = 'gray';
+		context.strokeStyle = 'black';
+
+		context.lineWidth = 2;
+
+		// Novo path
+		// Primeiro Arco
+		context.beginPath();
+
+		context.arc(50, 50, 40, 90 * Math.PI/180, 270 * Math.PI/180, false);
+
+		context.fill();//preencimento
+      	
+      
+      // Traçar as linhas do caminho
+      context.stroke();
+
+      //Segundo arco
+      //n Novo Path
+      context.beginPath()
+      context.arc(150, 50, 40, 90 * Math.PI/180, 270 *Math.PI/180, true);
+      context.fill();
+      context.stroke();
+
+      //context.beginPath()
+
+      //Circunferencia completa
+      // Novo Path
+      context.beginPath();
+      context.arc(250, 50, 40, 0, 2 *Math.PI);
+      context.fill();
+      context.stroke();
+	</script>
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Começando a desenhar - Retangulos -2</title>
+</head>
+
+<body>
+	<canvas id="meu_canvas" width = "200" height = "200"></canvas>
+	<script type="text/javascript">	
+		//Aqui obteremos o contexto gráfico e trabalharemos com o Canvas
+		//referenciando o canvas
+		var canvas = document.getElementById('meu_canvas');
+		//Obtendo o contexto
+		var context = canvas.getContext('2d');
+
+
+		//fillStyle : cor do preenchimento
+		//strokeStyle: cor da linha
+		//lineWidth: espessura da linha em pixels
+
+		//desenhar um retangulo com preenchimento vermelho
+		context.fillStyle = 'red';
+		context.fillRect(50, 50, 100, 100);
+
+		//contorno azul, com expessura de 3px
+		context.lineWidth = 3;
+		context.strokeStyle = 'blue';
+		context.strokeRect(25, 25, 150, 150);
+	</script>
+</body>

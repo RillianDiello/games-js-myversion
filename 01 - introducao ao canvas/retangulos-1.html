@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Começando a desenhar - Retangulos -1</title>
+</head>
+
+<body>
+	<canvas id="meu_canvas" width = "200" height = "200"></canvas>
+	<script type="text/javascript">	
+		//Aqui obteremos o contexto gráfico e trabalharemos com o Canvas
+		//referenciando o canvas
+		var canvas = document.getElementById('meu_canvas');
+		//Obtendo o contexto
+		var context = canvas.getContext('2d');
+
+
+		//fillRect (x, y, largura, altura): pinta completamente uma area retangular
+		//strokeRect (x, y, largura, altura): desenha um contorno do retangulo
+		//desenhar um retangulo
+		context.fillRect(50, 50, 100, 100);
+
+		context.strokeRect(25, 25, 150, 150);
+	</script>
+</body>

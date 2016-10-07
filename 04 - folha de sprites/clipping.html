@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>
+		Spritestheet - recorte e enquadramento (clipping)
+	</title>
+</head>
+<body>
+	<canvas id = "canvas_clipping" widht = "500" height = "500"></canvas>
+	<script>
+			var imgSonic = new Image();
+			imgSonic.src = 'spritesheet.png';
+			imgSonic.onload = function() {
+			//Aqui faremos o clipping(recorte) da imagem nas coordenadas
+			//desejadas
+			//Como estamos considerando imagens com quadros iguais
+			//basta dividir a largura e altura totais pelo numero de
+			//colunas e linhas respectivamente
+
+				// Passo esstes valores conforme a minha spritesheet
+				var linhas = 3;
+				var colunas = 8;
+
+				//Dimensão de cada quadro
+				/*Por exemplo
+				Uma imagem de 200x200
+				vc tem 5x5 imagens
+				vc teria q cada quadro tem
+				40x40
+				*/
+				var largura = imgSonic.width / colunas;
+				var altura = imgSonic.height / linhas;
+
+				//Quadro que eu quero (expresso em linha e coluna)
+				var queroLinha = 2;
+				var queroColuna = 7;
+
+				//Calculando a posição para recorte
+				var x = largura * queroColuna;
+				var y = altura * queroLinha;
+
+				//recebe o contexto canvas sobre o qual eu estou trabalhando
+				var context =document.getElementById('canvas_clipping').getContext('2d');
+				context.drawImage(
+					imgSonic,
+					x,
+					y,
+					largura,
+					altura,
+					100, //posição da largura onde eu vou fazer o desenho
+					100, //posição da altura onde eu vou fazer o desenho
+					largura,
+					altura
+					);
+
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="spritesheet.js"></script>
+    <script type="text/javascript" src="animacao.js"></script>
+    <script type="text/javascript" src="sonic.js"></script>
+    <script type="text/javascript" src="teclado.js"></script>
+    <title>Mover personagem</title>
+    </head>
+    <body>
+      <canvas id = "canvas_sonic" width="500" height="500"></canvas>
+      <script>
+      var canvas = document.getElementById('canvas_sonic');
+      var context = canvas.getContext('2d');
+
+      var teclado = new Teclado(document);
+      var animacao = new Animacao(context);
+
+      var imgSonic = new Image();
+      imgSonic.src = 'spritesheet.png';
+
+      var sonic = new Sonic(context, teclado, imgSonic);
+      sonic.x = 0;
+      sonic.y = 200;
+      animacao.novoSprite(sonic);
+      //Ao final do script ligamos no evento onload
+      imgSonic.onload = function() {
+         animacao.ligar();
+      }
+      </script>
+
+    </body>
+</html>
